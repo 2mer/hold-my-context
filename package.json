@@ -1,0 +1,24 @@
+{
+	"name": "oh-my-context",
+	"version": "1.0.0",
+	"description": "write less react context boilerplate",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsup"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/react": "^19.2.2",
+		"react": "^19.2.0",
+		"tsup": "^8.5.0",
+		"typescript": "^5.9.3"
+	},
+	"peerDependencies": {
+		"@types/react": "^19.2.2",
+		"react": "^19.2.0"
+	}
+}
