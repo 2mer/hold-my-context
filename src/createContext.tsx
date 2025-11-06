@@ -4,7 +4,7 @@ const NO_CONTEXT = Symbol('NO_CONTEXT');
 
 export type ContextLogicHook<TProps, TContext> = (props: TProps) => TContext;
 
-export default function createContext<
+export function createContext<
 	TContextHook extends (props?: any) => any,
 	// util types
 	TContextValue extends ReturnType<TContextHook>
@@ -41,7 +41,7 @@ export default function createContext<
 		return ctx;
 	}
 
-	function withProvider<T extends (props: any) => JSX.Element>(
+	function withProvider<T extends (props: any) => React.JSX.Element>(
 		Comp: T,
 		providerProps:
 			| TProps
