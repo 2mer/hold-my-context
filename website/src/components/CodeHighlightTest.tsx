@@ -1,7 +1,7 @@
-import React from "react";
+// import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import Tippy from "@tippyjs/react";
+// import Tippy from "@tippyjs/react";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 // import "tippy.js/dist/tippy.css";
 
@@ -35,65 +35,19 @@ export function highlight(
 }
 
 function highlightedToString(code: ReturnType<typeof highlight>) {
-	return code.map((part, i) => {
-		const content = (
-			// <span
-			// 	key={i}
-			// 	style={{
-			// 		backgroundColor: part.color || "transparent",
-			// 		borderRadius: part.color ? "4px" : undefined,
-			// 	}}
-			// >
-			// 	{part.text}
-			// </span>
-			part.text
-		);
-		return part.tooltip ? (
-			// <Tippy key={i} content={part.tooltip} delay={[100, 0]}>
-			// 	{content}
-			// </Tippy>
-			content
-		) : (
-			content
-		);
-	}).join('');
+	return code.map((part) => part.text).join('');
 }
 
 /**
  * React component that renders a highlighted code block
  */
 export function CodeWithHighlights({ code }: { code: ReturnType<typeof highlight> }) {
-	// const rendered = code.map((part, i) => {
-	// 	const content = (
-	// 		// <span
-	// 		// 	key={i}
-	// 		// 	style={{
-	// 		// 		backgroundColor: part.color || "transparent",
-	// 		// 		borderRadius: part.color ? "4px" : undefined,
-	// 		// 	}}
-	// 		// >
-	// 		// 	{part.text}
-	// 		// </span>
-	// 		part.text
-	// 	);
-	// 	return part.tooltip ? (
-	// 		// <Tippy key={i} content={part.tooltip} delay={[100, 0]}>
-	// 		// 	{content}
-	// 		// </Tippy>
-	// 		content
-	// 	) : (
-	// 		content
-	// 	);
-	// });
-
 	return (
 		<div style={{ position: 'relative' }}>
 			{/* syntax highlighting */}
 			<SyntaxHighlighter
 				language="tsx"
 				style={oneDark}
-				// wrapLines
-				// showLineNumbers
 				PreTag="div"
 				customStyle={{
 					borderRadius: "8px",
@@ -118,7 +72,7 @@ export function CodeWithHighlights({ code }: { code: ReturnType<typeof highlight
 				wordSpacing: 'normal',
 				wordBreak: 'normal',
 				lineHeight: 1.5,
-				// color: 'transparent',
+				color: 'transparent',
 				background: 'rgb(40, 44, 52)',
 				zIndex: -1,
 			}}>
